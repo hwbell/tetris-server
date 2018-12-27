@@ -3,9 +3,6 @@ const MongoClient = require('mongodb').MongoClient;
 const localMongoUrl = 'mongodb://localhost:27017/tetris-app';
 const herokuMongoUrl = process.env.MONGODB_URI;
 
-let dbCollection = process.env.MONGODB_URI ? 'heroku_d19d3z3z' : 'tetris-app';
-const db = client.db(dbCollection);
-
 const insertScore = (scoreObj) => {
   console.log('inserting score into mongodb');
 
@@ -14,6 +11,9 @@ const insertScore = (scoreObj) => {
       return console.log('Unable to connect to MongoDB server');
     }
     console.log('Connected to MongoDB server');
+
+    let dbCollection = process.env.MONGODB_URI ? 'heroku_d19d3z3z' : 'tetris-app';
+    const db = client.db(dbCollection);
 
     db.collection('tetris-app').insertOne({scoreObj}, (err, result) => {
       if (err) {
@@ -32,6 +32,7 @@ const getScores = (type, dbCollection, callback) => {
       console.log('Unable to connect to MongoDb server')
     }
 
+    let dbCollection = process.env.MONGODB_URI ? 'heroku_d19d3z3z' : 'tetris-app';
     const db = client.db(dbCollection);
 
     // don't need to use type atm, but maybe later
