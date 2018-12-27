@@ -11,11 +11,13 @@ const insertScore = (scoreObj) => {
       return console.log('Unable to connect to MongoDB server');
     }
     console.log('Connected to MongoDB server');
-
+    
     let dbCollection = process.env.MONGODB_URI ? 'heroku_d19d3z3z' : 'tetris-app';
     const db = client.db(dbCollection);
 
-    db.collection('tetris-app').insertOne({scoreObj}, (err, result) => {
+    console.log(`Inserting Score into collection: ${dbCollection}`)
+    
+    db.collection(dbCollection).insertOne({scoreObj}, (err, result) => {
       if (err) {
         console.log('Unable to insert record to tetris-app');
       }
