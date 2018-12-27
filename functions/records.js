@@ -32,7 +32,6 @@ const getScores = (type, dbCollection, callback) => {
       console.log('Unable to connect to MongoDb server')
     }
 
-    let dbCollection = process.env.MONGODB_URI ? 'heroku_d19d3z3z' : 'tetris-app';
     const db = client.db(dbCollection);
 
     // don't need to use type atm, but maybe later
