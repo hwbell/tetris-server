@@ -4,7 +4,7 @@ var router = express.Router();
 // get functions for adjusting the database
 const db = require('../functions/records.js');
 
-let dbCollection = process.env.MONGODB_URI ? 'heroku_ktdh1smp' : 'tetris-app';
+let dbCollection = process.env.MONGODB_URI ? 'heroku_d19d3z3z' : 'tetris-app';
 
 /* GET users listing. */
 router.get('/', function(req, res, next) {

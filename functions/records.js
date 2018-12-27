@@ -12,7 +12,7 @@ const insertScore = (scoreObj) => {
     }
     console.log('Connected to MongoDB server');
 
-    let dbCollection = process.env.MONGODB_URI ? 'heroku_ktdh1smp' : 'tetris-app';
+    let dbCollection = process.env.MONGODB_URI ? 'heroku_d19d3z3z' : 'tetris-app';
     const db = client.db(dbCollection);
 
     db.collection('tetris-app').insertOne({scoreObj}, (err, result) => {
