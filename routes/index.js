@@ -22,6 +22,8 @@ router.post('/', function(req, res, next) {
   console.log(message);
 
   records.insertScore(req.body);
+
+  res.writeHead(200, {'Content-Type': 'application/json'});
   res.json({message});
 
 });

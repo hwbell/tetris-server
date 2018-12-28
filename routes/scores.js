@@ -13,7 +13,8 @@ router.get('/', function(req, res, next) {
   console.log(`dbCollection: ${dbCollection}`)
 
   currentData = db.getScores('scores', dbCollection, (data) => {
-    console.log(`Last score uploaded: ${data[data.length - 1]}`)
+    
+    res.writeHead(200, {'Content-Type': 'application/json'});
     res.json({data});
     
   });
