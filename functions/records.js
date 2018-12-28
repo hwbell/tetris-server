@@ -18,10 +18,11 @@ const insertScore = (scoreObj) => {
     console.log(`Inserting Score into collection: ${dbCollection}`)
     
     db.collection(dbCollection).insertOne({scoreObj}, (err, result) => {
-      if (err) {
-        console.log('Unable to insert record to tetris-app');
-      }
+
       console.log(JSON.stringify(result.ops, undefined, 2));
+      client.close(); 
+    }, (err) => {
+      console.log('Unable to insert score', err);
     });
     
   });
