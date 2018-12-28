@@ -14,7 +14,7 @@ router.get('/', function(req, res, next) {
 
   currentData = db.getScores('scores', dbCollection, (data) => {
     console.log(`Last score uploaded: ${data[data.length - 1]}`)
-    res.send(data);
+    res.json({data});
     
   });
 

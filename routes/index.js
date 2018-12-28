@@ -22,7 +22,7 @@ router.post('/', function(req, res, next) {
   console.log(message);
 
   records.insertScore(req.body);
-  res.send(message);
+  res.json({message});
 
 });
 

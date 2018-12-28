@@ -29,6 +29,8 @@ const insertScore = (scoreObj) => {
 
 const getScores = (type, dbCollection, callback) => {
 
+  console.log(dbCollection);
+
   MongoClient.connect(herokuMongoUrl || localMongoUrl, (err, client) => {
     if (err) {
       console.log('Unable to connect to MongoDb server')
