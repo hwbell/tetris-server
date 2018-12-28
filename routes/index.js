@@ -7,7 +7,7 @@ const records = require('../functions/records.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
-  res.setHeader('Content-Type', 'text/html');
+  //res.setHeader('Content-Type', 'text/html');
   res.render('index', { title: 'Tetris Server' });
   //res.end();
 });
@@ -23,8 +23,8 @@ router.post('/', function(req, res, next) {
 
   records.insertScore(req.body);
 
-  res.header("Access-Control-Allow-Origin", "*");
-  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+  //res.header("Access-Control-Allow-Origin", "*");
+  //res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.json({message});
   //res.end();
 });
