@@ -12,12 +12,12 @@ router.get('/', function(req, res, next) {
   console.log('GET request for high scores received.');
   console.log(`dbCollection: ${dbCollection}`)
 
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
+
   currentData = db.getScores('scores', dbCollection, (data) => {
-    
-    res.header("Access-Control-Allow-Origin", "*");
-    res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
     res.json({data});
-    next();
+    res.end();
   });
 
 });
