@@ -17,7 +17,7 @@ router.get('/', function(req, res, next) {
 
   currentData = db.getScores('scores', dbCollection, (data) => {
     res.json({data});
-    res.end();
+    //res.end();
   });
 
 });

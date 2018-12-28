@@ -9,7 +9,7 @@ const records = require('../functions/records.js');
 router.get('/', function(req, res, next) {
   res.setHeader('Content-Type', 'text/html');
   res.render('index', { title: 'Tetris Server' });
-  res.end();
+  //res.end();
 });
 
 router.post('/', function(req, res, next) {
@@ -26,7 +26,7 @@ router.post('/', function(req, res, next) {
   res.header("Access-Control-Allow-Origin", "*");
   res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.json({message});
-  res.end();
+  //res.end();
 });
 
 module.exports = router;
