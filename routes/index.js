@@ -7,12 +7,11 @@ const records = require('../functions/records.js');
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
+  res.setHeader('Content-Type', 'text/html');
   res.render('index', { title: 'Tetris Server' });
 });
 
 router.post('/', function(req, res, next) {
-
-  // const highScores = records.getDbScores();
 
   let message = {
     scores: req.body,
@@ -23,7 +22,8 @@ router.post('/', function(req, res, next) {
 
   records.insertScore(req.body);
 
-  res.writeHead(200, {'Content-Type': 'application/json'});
+  res.header("Access-Control-Allow-Origin", "*");
+  res.header("Access-Control-Allow-Headers", "Origin, X-Requested-With, Content-Type, Accept");
   res.json({message});
 
 });
